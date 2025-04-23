@@ -1,61 +1,83 @@
 from transformers import pipeline
 
 summarizer = pipeline(task="summarization", model="facebook/bart-large-cnn")
-ARTICLE = """You’re Not a Real Developer Until You’ve Built These 5 Projects
-Bold headlines always spark clicks and debates—but let’s be honest, they also strike a nerve for a reason.
-The phrase “You’re not a real developer until…” isn’t meant to gatekeep. It’s a challenge—a wake-up call. A reminder that writing tutorials isn’t enough. Copy-pasting code from YouTube and calling it a day won’t make you stand out. What separates real developers from the crowd is their ability to build, break, and rebuild.
-If you want to be taken seriously, build seriously. Here are 5 projects you must build not just to level up, but to prove to yourself that you’ve arrived.
-1. The CRUD App That’s Not Just Another Todo List
-We’ve all built a todo list. It’s like the developer’s rite of passage. But now it’s time to evolve. Think Inventory Manager, Student Record System, or Expense Tracker.
-Why it matters:
-CRUD is the DNA of most web apps. Create, Read, Update, Delete—mastering these operations means you understand real-world app behavior and data flow.
-What you’ll learn:
-Local storage or backend integration
-Form handling and validation
-Real-time UI updates
-Modular design
-2. A Fully Responsive Portfolio Website That Actually Represents You
-You’re a developer. People Google you. What do they find?
-If your portfolio is still “Under Construction,” it’s time to fix that.
-Why it matters:
-Your portfolio is your digital handshake. It's where potential clients, recruiters, and collaborators meet you. Make it count.
-What you’ll learn:
-Semantic HTML & CSS mastery
-Responsive design (mobile-first)
-Animation and UX design principles
-Hosting and deployment (Netlify, Vercel, etc.)
-3. A Real-Time Chat App with Authentication
-Nothing says “I get full-stack development” like a real-time app that requires users to sign in and communicate.
-Why it matters:
-It’s a big step. This project throws you into the deep end—authentication, WebSockets, databases, and frontend-backend interaction.
-What you’ll learn:
-Firebase or Node.js + WebSocket + MongoDB
-User authentication (OAuth, JWT, sessions)
-Real-time updates with Socket.io or Firebase Realtime Database
-Clean UI with React or Vue
-4. A Fully Functional E-commerce Store
-This is your boss battle. Product listings, cart logic, user accounts, payments—it’s everything rolled into one.
-Why it matters:
-E-commerce is complex. Building it proves that you can architect large-scale apps, and thin
-What you’ll learn:
-API integration (Stripe, PayPal, etc.)
-State management (Redux, Zustand, etc.)
-Security and validation
-Component reusability
-5. A SaaS Dashboard with Admin Controls
-It’s one thing to build pretty UIs. It’s another to design functional admin systems that can scale. Dashboards teach you how real software works.
-Why it matters:
-This is what companies pay big for—tools that manage, analyze, and control. Building this shows you’re not just a coder, you’re a problem solver.
-What you’ll learn:
-Data visualization (charts, tables, KPIs)
-Role-based access control
-Backend integration (Node, Django, or Laravel)
-Clean, modular UI systems
-Final Thoughts: Build or Be Forgotten
-There are millions of developers out there. Tutorials are free. Bootcamps are common. But what will make you stand out is your portfolio of real projects. Not just half-finished GitHub repos, but fully-deployed, cleanly-coded, user-focused solutions.
-The code is your canvas. The world is your audience.
-If you’re serious about leveling up, check out my ebooks and real-world developer resources at:
-codewithdhanian.gumroad.com
-I’ve poured years of experience into resources that help you build—not just learn. The world needs more builders. Be one of them.
- """
-print(summarizer(ARTICLE, max_length=350, min_length=120, do_sample=False))
+
+def summarize(article):
+  return summarizer(article, max_length=350, min_length=120, do_sample=False)
+
+# ARTICLE = """ Different types of AI
+#   ntroduction
+# Artificial intelligence (AI) encompasses a range of systems designed to mimic, enhance, or exceed human capabilities. AI can be categorized based on its capabilities and functionalities. Understanding these types and their capabilities highlights the diverse applications and potential of AI technologies.
+# Objectives
+# After completing this reading, you will be able to:
+# Explain the types of artificial intelligence based on their functionalities.
+# Explore the capabilities of each type of artificial intelligence.
+# AI types
+# Diagnostic/descriptive AI
+# Diagnostic or descriptive AI focuses on assessing the correctness of behavior by analyzing historical data to understand what happened and why. This type of AI is instrumental in identifying patterns and trends, performing comparative analyses, and conducting root cause analyses.
+# Capabilities:
+# Scenario planning: Helps in creating different future scenarios based on historical data.
+# Pattern/trends recognition: Identifies recurring patterns and trends within data sets.
+# Comparative analysis: Compares various data points to find correlations and insights.
+# Root cause analysis: Determines the underlying reasons behind specific outcomes.
+# Predictive AI
+# Predictive AI is concerned with forecasting future outcomes based on historical and current data. This type of AI is used extensively in predicting customer behavior, market trends, and other forward-looking insights.
+# Capabilities:
+# Forecasting: Predicts future trends and events.
+# Clustering and classification: Groups similar data points and classifies them into predefined categories.
+# Propensity model: Assesses the likelihood of specific outcomes based on current data.
+# Decision trees: Utilize a tree-like model of decisions to predict outcomes.
+# Prescriptive AI
+# Prescriptive AI focuses on determining the optimal course of action by providing recommendations based on data analysis. It goes beyond prediction by suggesting actions that can help achieve desired outcomes.
+# Capabilities:
+# Personalization: Tailors recommendations and experiences to individual needs.
+# Optimization: Identifies the most efficient ways to achieve goals.
+# Fraud prevention: Detects and prevents fraudulent activities through analysis.
+# Next best action recommendation: Provides actionable insights on the next steps to take.
+# Generative/cognitive AI
+# Generative or cognitive AI is involved in producing various types of content, such as code, articles, images, and more. This type of AI mimics human creativity and cognitive processes to automate and assist in content creation.
+# Capabilities:
+# Advises: Offers expert advice and recommendations.
+# Creates: Produces new content, such as text, images, and code.
+# Protects: Enhances security measures through intelligent analysis.
+# Assists: Provides assistance in various tasks, improving efficiency.
+# Automates: Automates repetitive tasks to save time and resources.
+# Reactive AI
+# Reactive AI systems are designed to respond to specific inputs with predetermined responses. They do not have memory or the ability to learn from past experiences, making them suitable for tasks that require immediate reactions.
+# Capabilities:
+# Rule-based actions: Executes specific actions based on predefined rules.
+# Instant responses: Provides immediate responses to inputs.
+# Static data analysis: Analyzes current data without considering past interactions.
+# Limited memory AI:
+# Limited memory AI systems have the ability to use past experiences to inform current decisions. They can learn from historical data to improve their performance over time. This type of AI is commonly used in autonomous vehicles and recommendation systems.
+# Capabilities:
+# Learning from data: Uses historical data to make informed decisions.
+# Pattern recognition: Identifies patterns over time to improve accuracy.
+# Adaptive responses: Adapts responses based on previous interactions.
+# Theory of Mind AI:
+# Theory of Mind AI is an advanced type of AI that aims to understand human emotions, beliefs, and intentions. It is still in the research stage and seeks to interact more naturally with humans by comprehending their mental states.
+# Capabilities:
+# Emotion recognition: Identifies and responds to human emotions.
+# Social interaction: Engages in more natural and human-like interactions.
+# Intent prediction: Predicts human intentions based on context and behavior.
+# Self-aware AI:
+# Self-aware AI represents the most advanced form of AI, which has its own consciousness and self-awareness. This type of AI can understand and react to its own emotions and states. It remains a theoretical concept and has not yet been realized.
+# Capabilities:
+# Self-diagnosis: Evaluates its own performance and health.
+# Autonomous learning: Learns independently without human intervention.
+# Adaptive behavior: Adjusts behavior based on self-awareness.
+# Narrow AI (Weak AI):
+# Narrow AI is designed to perform a specific task or a limited range of tasks. It excels in a single area but lacks generalization capabilities. Most current AI applications fall under this category.
+# Capabilities:
+# Task specialization: Excels in performing specific tasks.
+# High accuracy: Achieves high performance in its designated area.
+# Efficiency: Operates efficiently within its scope of specialization.
+# General AI (Strong AI):
+# General AI, like human intelligence, can understand, learn, and apply knowledge across a wide range of tasks. It can also transfer knowledge from one domain to another and adapt to new situations autonomously.
+# Capabilities:
+# Cross-domain learning: Applies knowledge across various domains.
+# Autonomous decision making: Makes decisions independently in diverse scenarios.
+# Human-like understanding: Understands and processes information similar to humans.
+# """
+
+# print(summarize(ARTICLE))
