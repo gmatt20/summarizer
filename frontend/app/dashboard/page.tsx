@@ -1,9 +1,11 @@
+import Input from "@/components/input";
+
 const Page = () => {
-  return(
+  return (
     <div>
-      <p>Hello World!</p>
+      <Input />
     </div>
   );
-}
+};
 
 export default Page;
