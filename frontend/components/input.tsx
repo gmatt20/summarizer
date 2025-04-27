@@ -45,6 +45,10 @@ const Input = () => {
         <form onSubmit={handleSubmit}>
           <textarea
             placeholder="Blah blah blah...."
+            className="max-h-60 min-h-10 border-2 rounded-2xl p-3"
+            rows={10}
+            cols={50}
+            maxLength={15}
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
           />
