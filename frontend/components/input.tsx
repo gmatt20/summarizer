@@ -2,6 +2,7 @@
 
 import { CircleArrowDown } from "lucide-react";
 import { useState } from "react";
+import { Button } from "./ui/button";
 
 const Input = () => {
   const [inputText, setInputText] = useState("");
@@ -52,7 +53,9 @@ const Input = () => {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
           />
-          <button type="submit">Summarize Please</button>
+          <Button variant="outline" type="submit">
+            Summarize Please
+          </Button>
         </form>
       </div>
       <p>{summary}</p>
