@@ -8,8 +8,10 @@ import Spinner from "./ui/spinner";
 const Input = () => {
   const [inputText, setInputText] = useState("");
   const [summary, setSummary] = useState("");
+  const [isLoading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
+    setLoading(true);
     e.preventDefault();
     console.log("sent!");
     try {
@@ -29,8 +31,8 @@ const Input = () => {
       }
 
       const responseData = await response.json();
-      console.log(responseData);
       setSummary(responseData.response);
+      setLoading(false);
     } catch (error) {
       console.error(error);
       throw error;
@@ -48,10 +50,9 @@ const Input = () => {
         <form onSubmit={handleSubmit} className="flex flex-col">
           <textarea
             placeholder="Blah blah blah...."
-            className="max-h-60 min-h-10 border-2 rounded-2xl p-3 mb-5"
-            rows={10}
+            className="max-h-60 min-h-20 border-2 rounded-2xl p-3 mb-5"
+            rows={50}
             cols={60}
-            maxLength={15}
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
           />
@@ -63,8 +64,10 @@ const Input = () => {
           </Button>
         </form>
       </div>
-      <Spinner />
-      <p>{summary}</p>
+      {isLoading && <Spinner />}
+      {summary && !isLoading && (
+        <p className="w-[80%] leading-10 my-5">{summary}</p>
+      )}
     </div>
   );
 };
