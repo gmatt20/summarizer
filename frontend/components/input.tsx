@@ -38,22 +38,26 @@ const Input = () => {
 
   return (
     <div className="text-center text-2xl flex flex-col items-center justify-center h-screen">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 my-5">
+        <CircleArrowDown />
         <p>Article Goes Here</p>
         <CircleArrowDown />
       </div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="flex flex-col">
           <textarea
             placeholder="Blah blah blah...."
-            className="max-h-60 min-h-10 border-2 rounded-2xl p-3"
+            className="max-h-60 min-h-10 border-2 rounded-2xl p-3 mb-5"
             rows={10}
-            cols={50}
+            cols={60}
             maxLength={15}
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
           />
-          <Button className="font-bold cursor-pointer" variant="default" type="submit">
+          <Button
+            className="font-bold cursor-pointer"
+            variant="default"
+            type="submit">
             Summarize Please
           </Button>
         </form>
