@@ -3,6 +3,7 @@
 import { CircleArrowDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import Spinner from "./ui/spinner";
 
 const Input = () => {
   const [inputText, setInputText] = useState("");
@@ -62,6 +63,7 @@ const Input = () => {
           </Button>
         </form>
       </div>
+      <Spinner />
       <p>{summary}</p>
     </div>
   );
