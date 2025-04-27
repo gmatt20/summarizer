@@ -66,7 +66,7 @@ const Input = () => {
       </div>
       {isLoading && <Spinner />}
       {summary && !isLoading && (
-        <p className="w-[80%] leading-10 my-5">{summary}</p>
+        <p className="w-[80%] leading-10 my-5 text-left">{summary}</p>
       )}
     </div>
   );
