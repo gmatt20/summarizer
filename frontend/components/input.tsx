@@ -53,7 +53,7 @@ const Input = () => {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
           />
-          <Button variant="outline" type="submit">
+          <Button className="font-bold cursor-pointer" variant="default" type="submit">
             Summarize Please
           </Button>
         </form>
