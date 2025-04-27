@@ -9,7 +9,7 @@ const Input = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    console.log("sent!");
     try {
       const response = await fetch(
         "http://127.0.0.1:8000/summarizethisplease",
@@ -27,8 +27,8 @@ const Input = () => {
       }
 
       const responseData = await response.json();
-      setSummary(responseData);
-      console.log(summary);
+      console.log(responseData);
+      setSummary(responseData.response);
     } catch (error) {
       console.error(error);
       throw error;
@@ -51,6 +51,7 @@ const Input = () => {
           <button type="submit">Summarize Please</button>
         </form>
       </div>
+      <p>{summary}</p>
     </div>
   );
 };
