@@ -16,7 +16,7 @@ const Input = () => {
     console.log("sent!");
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/summarizethisplease",
+        "http://18.188.69.131:8000/summarizethisplease",
         {
           method: "POST",
           headers: {
